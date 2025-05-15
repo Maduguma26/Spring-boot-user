@@ -1,4 +1,5 @@
 package com.example.demo.service;
+import com.example.demo.model.User;
 
 import com.example.demo.repo.FakeRepo;
 import org.junit.jupiter.api.BeforeEach;
@@ -28,7 +29,7 @@ class UserServiceTests {
         // Given
         long id = 1;
         String name = "Konanani";
-        String surname = "maduguma";
+        String surname = "Maduguma";
 
         // When
         userService.addUser(id, name, surname);
@@ -38,12 +39,18 @@ class UserServiceTests {
         // In a real test, we'd also capture System.out to verify the message
     }
 
+
+
     @Test
     void testRemoveUser() {
         // Given
         long id = 1;
         String name = "Konanani";
         String surname = "Maduguma";
+        User user = new User(id, name, surname);
+
+        // Stub the repo to return the user
+        when(fakeRepo.findUserById(id)).thenReturn(user);
 
         // When
         userService.removeUser(id);
@@ -52,11 +59,21 @@ class UserServiceTests {
         verify(fakeRepo, times(1)).deleteUser(id);
     }
 
+
+
+
     @Test
     void testGetUser() {
         // Given
         long id = 1;
         String name = "Konanani";
+        String surname = "Maduguma";
+        User user = new User(id, name, surname);
+
+        // Stub the mock behavior
+        when(fakeRepo.findUserById(id)).thenReturn(user);
+
+        // Expected output
         String expectedMessage = "Hello " + name;
 
         // When
@@ -64,5 +81,4 @@ class UserServiceTests {
 
         // Then
         assertEquals(expectedMessage, result);
-    }
-}
+    }}
