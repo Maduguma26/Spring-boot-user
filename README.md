@@ -9,14 +9,6 @@ A simple Spring Boot application demonstrating:
 
 ---
 
-## 🌟 GitHub About Section  
-**Description**:  
-`A Spring Boot demo showcasing MVC architecture, dependency injection, and unit testing with an in-memory user repository.`  
-
-**Topics**:  
-`java`, `spring-boot`, `dependency-injection`, `junit`, `mockito`, `gradle`  
-
----
 
 ## 🚀 Features  
 - Add, retrieve, and delete users  
